@@ -1,0 +1,135 @@
+/**
+ *  Do not remove the comment below. It's the markers used by wiredep to inject
+ *  sass dependencies when defined in the bower.json of your dependencies
+ */
+// bower:scss
+// endbower
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:400,700,700italic,400italic);
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+  local('MaterialIcons-Regular'),
+  url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+  url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.woff) format('woff'),
+  url(../../bower_components/material-design-iconfont/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Preferred icon size */
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+html {
+  font-family: 'Roboto Slab', serif;
+}
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+a, a:active, a:hover, a:visited {
+  color: #4099ff;
+}
+
+md-toolbar md-icon.md-default-theme {
+  color: white;
+}
+
+md-toolbar input {
+  color: white;
+}
+
+md-input-container .md-errors-spacer {
+  min-height: 0px !important;
+}
+
+
+//.animate-repeat {
+//  height: 140px;
+//  list-style: none;
+//  border-bottom: 1px solid white;
+//  -webkit-transition: 0.2s linear all;
+//  transition: 0.2s linear all;
+//}
+//
+//.animate-repeat.ng-move,
+//.animate-repeat.ng-enter,
+//.animate-repeat.ng-leave {
+//  -webkit-transition: all linear 0.5s;
+//  transition: all linear 0.5s;
+//}
+//
+//.animate-repeat.ng-leave.ng-leave-active,
+//.animate-repeat.ng-move,
+//.animate-repeat.ng-enter {
+//  opacity: 0;
+//
+//}
+//
+//.animate-repeat.ng-leave,
+//.animate-repeat.ng-move.ng-move-active,
+//.animate-repeat.ng-enter.ng-enter-active {
+//  opacity: 1;
+//
+//}
+//
+///**
+// * Stagger Leave (hide) animation
+// */
+//.animate-repeat.ng-leave-stagger {
+//
+//  -webkit-transition-delay: 0.2s;
+//  transition-delay: 0.2s;
+//
+//
+//  -webkit-transition-duration: 0s;
+//  transition-duration: 0s;
+//}
+//
+///**
+// * Stagger ENTER ANIMATION
+// */
+//.animate-repeat.ng-enter-stagger {
+//  /* this will have a 100ms delay between each successive enter animation */
+//  -webkit-transition-delay: 0.2s;
+//  transition-delay: 0.2s;
+//
+//  /* in case the stagger doesn't work then these two values
+//   must be set to 0 to avoid an accidental CSS inheritance */
+//  -webkit-transition-duration: 0s;
+//  transition-duration: 0s;
+//}
+
+/**
+ *  Do not remove the comment below. It's the markers used by gulp-inject to inject
+ *  all your sass files automatically
+ */
+// injector
+// endinjector

@@ -1,0 +1,74 @@
+<div layout = "row" layout-fill>
+
+  <md-sidenav layout = "column"
+              class = "md-sidenav-left"
+              md-component-id = "left"
+              md-is-locked-open = "vm.openNav"
+              md-whiteframe = "4">
+    <md-button ng-click = "vm.createCategory($event);vm.toggleSidenav('left')">
+      <ng-md-icon icon = "add"></ng-md-icon>
+      create new category
+    </md-button>
+    <md-list class = "md-dense" flex>
+      <md-list-item class = "md-2-line" ng-repeat = "item in vm.categories"
+                    ng-click = "vm.showCat($index);vm.toggleSidenav('left')">
+        <div class = "md-list-item-text" layout = "column">
+          <p>{{item.label}}</p>
+        </div>
+        <md-button class = "md-secondary md-icon-button" ng-click = "vm.deleteCat($index);vm.toggleSidenav('left')">
+          <i class = "material-icons">delete</i>
+        </md-button>
+      </md-list-item>
+    </md-list>
+  </md-sidenav>
+
+  <div layout = "column" flex>
+    <md-toolbar class = "cyanbg">
+      <div class = "md-toolbar-tools">
+
+
+        <md-input-container class = "light-text" flex>
+          <label>&nbsp;</label>
+          <input ng-model = "vm.searchString" ng-enter = "vm.search()" placeholder = "enter search">
+        </md-input-container>
+
+        <md-button aria-label = "Search" ng-click = "vm.search()">
+          <ng-md-icon icon = "search"></ng-md-icon>
+        </md-button>
+      </div>
+
+    </md-toolbar>
+
+
+    <md-content layout-fill layout = "column" flex>
+      <md-progress-linear ng-disabled = "!vm.loadInProgress" md-mode = "query"></md-progress-linear>
+      <div class = 'md-padding' layout = "row" layout-wrap>
+        <md-card ng-class="{cardSize: $mdMedia('gt-sm')}" ng-repeat = "video in vm.videos" >
+          <md-card-content ng-click="vm.gotoVideo(video.id)">
+
+            <div layout-gt-sm = "row" layout = "column" layout-align="start stretch" layout-align-gt-sm = "space-between start">
+              <div hide-gt-sm flex>
+                <h2>{{video.title}}</h2>
+                <p>Published on {{video.publishedAt}}</p>
+              </div>
+
+              <div flex = "100" flex-gt-sm="45">
+                <img ng-src = "{{video.images.medium.url}}" class = "img-responsive" alt = "Washed Out">
+              </div>
+              <div flex-gt-sm = "50" show-gt-sm flex = "100">
+                <p>Published on {{video.publishedAt}}</p>
+              </div>
+            </div>
+
+          </md-card-content>
+
+
+          <md-card-actions layout = "row" layout-align = "end center">
+            <md-button>Watch Video</md-button>
+          </md-card-actions>
+        </md-card>
+      </div>
+
+      <md-content>
+  </div>
+</div>

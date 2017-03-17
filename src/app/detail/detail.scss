@@ -1,0 +1,31 @@
+.green {
+  background-color:#58ff73;
+}
+
+.red {
+  background-color: #ff8d9e;
+}
+
+md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
+  background-color: #4099ff;
+  color:white;
+}
+
+md-input-container.light-text .md-input::-moz-placeholder
+{
+  color:#eee;
+}
+md-input-container.light-text .md-input::-webkit-input-placeholder
+{
+  color:#eee;
+}
+
+md-input-container.light-text .md-input
+{
+  color:white;
+}
+md-input-container.light-text .md-input
+{
+  color:white;
+}
+
