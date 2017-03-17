@@ -7,6 +7,13 @@ Working url: **http://tom.crystal-bits.co.uk**
 
 Tested with: **Chrome and Firefox**
 
+still to do:
+VIsual finalization, missing elements etc
+Preserve search results
+Pagination
+Animations
+Debug and test on browsers
+
 
 
 
