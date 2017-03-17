@@ -1,4 +1,4 @@
-<div layout = "column" layout-fill>
+<div layout = "column">
   <div layout = "row">
     <md-button ng-click = "vm.back()">back to results</md-button>
   </div>
@@ -13,7 +13,10 @@
       <div ob-lazytube = "{{videoID}}" rel = "0">Keyboard cat</div>
     </div>
     <div flex-gt-sm = "35" show-gt-sm flex = "100">
+      <h3>{{video.title}}</h3>
+
       <p>Published on {{video.publishedAt}}</p>
+      <p>{{video.description}}</p>
     </div>
   </div>
 

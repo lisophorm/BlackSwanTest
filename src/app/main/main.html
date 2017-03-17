@@ -30,13 +30,17 @@
               <div hide-gt-sm flex>
                 <h2>{{video.title}}</h2>
                 <p>Published on {{video.publishedAt}}</p>
+
               </div>
 
               <div flex = "100" flex-gt-sm="45">
                 <img ng-src = "{{video.images.medium.url}}" class = "img-responsive" alt = "Washed Out">
               </div>
               <div flex-gt-sm = "50" hide show-gt-sm flex = "100">
+                <h3>{{video.title}}</h3>
+
                 <p>Published on {{video.publishedAt}}</p>
+                <p>{{video.description | cut:true:100:' ...'}}</p>
               </div>
             </div>
 
