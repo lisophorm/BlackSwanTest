@@ -1,26 +1,6 @@
 <div layout = "row" layout-fill>
 
-  <md-sidenav layout = "column"
-              class = "md-sidenav-left"
-              md-component-id = "left"
-              md-is-locked-open = "vm.openNav"
-              md-whiteframe = "4">
-    <md-button ng-click = "vm.createCategory($event);vm.toggleSidenav('left')">
-      <ng-md-icon icon = "add"></ng-md-icon>
-      create new category
-    </md-button>
-    <md-list class = "md-dense" flex>
-      <md-list-item class = "md-2-line" ng-repeat = "item in vm.categories"
-                    ng-click = "vm.showCat($index);vm.toggleSidenav('left')">
-        <div class = "md-list-item-text" layout = "column">
-          <p>{{item.label}}</p>
-        </div>
-        <md-button class = "md-secondary md-icon-button" ng-click = "vm.deleteCat($index);vm.toggleSidenav('left')">
-          <i class = "material-icons">delete</i>
-        </md-button>
-      </md-list-item>
-    </md-list>
-  </md-sidenav>
+
 
   <div layout = "column" flex>
     <md-toolbar class = "cyanbg">
@@ -55,7 +35,7 @@
               <div flex = "100" flex-gt-sm="45">
                 <img ng-src = "{{video.images.medium.url}}" class = "img-responsive" alt = "Washed Out">
               </div>
-              <div flex-gt-sm = "50" show-gt-sm flex = "100">
+              <div flex-gt-sm = "50" hide show-gt-sm flex = "100">
                 <p>Published on {{video.publishedAt}}</p>
               </div>
             </div>
@@ -63,10 +43,10 @@
           </md-card-content>
 
 
-          <md-card-actions layout = "row" layout-align = "end center">
+          <!--md-card-actions layout = "row" layout-align = "end center">
             <md-button>Watch Video</md-button>
           </md-card-actions>
-        </md-card>
+        </md-card-->
       </div>
 
       <md-content>

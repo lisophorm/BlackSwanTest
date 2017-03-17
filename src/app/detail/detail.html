@@ -1,15 +1,18 @@
-
-<div layout="row" layout-fill>
+<div layout = "column" layout-fill>
+  <div layout = "row">
+    <md-button ng-click = "vm.back()">back to results</md-button>
+  </div>
+  <div hide-gt-sm flex id = "smallHeader">
+    <h2>{{video.title}}</h2>
+    <p>Published on {{video.publishedAt}}</p>
+  </div>
   <div layout-gt-sm = "row" layout = "column" style="clear: both;"  layout-align="start stretch" layout-align-gt-sm = "space-between start" flex>
-    <div hide-gt-sm flex  id="smallHeader">
-      <h2>{{video.title}}</h2>
-      <p>Published on {{video.publishedAt}}</p>
-    </div>
 
-    <div flex = "100" flex-gt-sm="45">
-      <div ob-lazytube href="http://www.youtube.com/watch?v=J---aiyznGQ" rel="0">Keyboard cat</div>
+
+    <div flex = "100" flex-gt-sm = "60">
+      <div ob-lazytube = "{{videoID}}" rel = "0">Keyboard cat</div>
     </div>
-    <div flex-gt-sm = "50" show-gt-sm flex = "100">
+    <div flex-gt-sm = "35" show-gt-sm flex = "100">
       <p>Published on {{video.publishedAt}}</p>
     </div>
   </div>
