@@ -1,4 +1,3 @@
-// stores and manages the current search result from the twitter api
 
 (function () {
   'use strict';

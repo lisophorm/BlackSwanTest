@@ -6,7 +6,7 @@
     .controller('MasterController', MasterController);
 
   /** @ngInject */
-  function MasterController($timeout, $http, $rootScope, $mdDialog, YoutubeFeed, $scope, $mdMedia, $mdSidenav, $mdToast, $state, searchResults, $stateParams) {
+  function MasterController($timeout, $http, Preloader, $rootScope, $mdDialog, YoutubeFeed, $scope, $mdMedia, $mdSidenav, $mdToast, $state, searchResults, $stateParams) {
     var vm = this;
 
     $scope.$mdMedia = $mdMedia;
@@ -28,8 +28,7 @@
     vm.searchYoutube = function (searchString, direction) {
 
       vm.loadInProgress = true;
-      $rootScope.bigLoading = true;
-
+      Preloader.show();
       vm.currentQuery = searchString;
       YoutubeFeed.searchYoutubeFeed(searchString, direction)
         .then(function (response) {
@@ -41,12 +40,13 @@
           vm.videos = response;
           searchResults.setScroll(0);
           $timeout(function () {
-            console.log('RESET SCROLL');
+
 
             $("#scrollArea").scrollTop(0);
-            $rootScope.bigLoading = false;
 
-          }, 300, true);
+
+          }, 100, true);
+          Preloader.hide();
 
         }, function (x) {
           $rootScope.bigLoading = false;
@@ -69,16 +69,17 @@
           vm.videos = response;
           var scrollPos = searchResults.getScroll();
 
-          $timeout(function () {
+          Preloader.hide(function () {
             console.log('GET scroll', scrollPos);
 
-            $rootScope.bigLoading = false;
+            $("#scrollArea").scrollTop(scrollPos);
 
-          }, 300, true);
+
+          });
 
 
         }, function (x) {
-          $rootScope.bigLoading = false;
+          Preloader.hide();
           showError(x);
 
         });
@@ -111,10 +112,9 @@
       console.log('scroll', scrollPos);
       console.log('goto vidoe', videoID);
       searchResults.saveSearch(vm.videos);
-      $rootScope.bigLoading = true;
-      $timeout(function () {
+      Preloader.show(function () {
         $state.go("detail", {"videoID": videoID});
-      }, 250, true);
+      });
 
 
     }

@@ -30,9 +30,6 @@
     });
 
 
-    //$scope.video=searchResults.findDetails($scope.videoID);
-    console.log($scope.video);
-
     $scope.videoWidth="100%";
 
     vm.back = function () {

@@ -5,7 +5,6 @@
   angular
     .module('beyondEercise01')
     .constant('configVar', {
-      twitterProxyURL:'http://Beyond.crystal-bits.co.uk/Beyond.php',
       url: 'https://www.googleapis.com/youtube/v3',
       APIparams: {
         key: 'AIzaSyBi6WSVs3D7_93pZQxXAMYmSRPZcAncX6I',

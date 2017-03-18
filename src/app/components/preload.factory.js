@@ -1,4 +1,3 @@
-// stores and manages the current search result from the twitter api
 
 (function () {
   'use strict';
@@ -13,14 +12,21 @@
 
     var show = function (func) {
       $rootScope.bigLoading = true;
-      $timeout(func, 300, true);
+      if (typeof func !== 'undefined') {
+        $timeout(func, 300, true);
+
+      }
     };
 
-    var hide = function () {
+    var hide = function (func) {
       $rootScope.bigLoading = true;
       $timeout(function () {
         $rootScope.bigLoading = false;
       }, 300, true);
+      if (typeof func !== 'undefined') {
+        $timeout(func, 300, true);
+
+      }
     };
 
 
