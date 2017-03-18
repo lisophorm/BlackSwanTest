@@ -19,6 +19,11 @@ Animations
 Debug and test on browsers
 
 
+*** Pagination
+With more time I would have used infinite scroll
+
+
+
 
 
 

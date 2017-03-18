@@ -12,6 +12,8 @@
 
     var show = function (func) {
       $rootScope.bigLoading = true;
+      safetyTimeout = $timeout(hide, 9000, true);
+
       if (typeof func !== 'undefined') {
         $timeout(func, 300, true);
 
@@ -19,7 +21,7 @@
     };
 
     var hide = function (func) {
-      $rootScope.bigLoading = true;
+      $timeout.cancel(safetyTimeout);
       $timeout(function () {
         $rootScope.bigLoading = false;
       }, 300, true);
