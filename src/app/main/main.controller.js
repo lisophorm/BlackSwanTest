@@ -49,11 +49,13 @@
           Preloader.hide();
 
         }, function (x) {
+          console.log(x);
+
           $rootScope.bigLoading = false;
           showError(x);
 
         });
-    }
+    };
 
     function backToResults() {
 
@@ -80,18 +82,21 @@
 
         }, function (x) {
           Preloader.hide();
+          console.log(x);
+
           showError(x);
 
         });
     }
 
     function showError(x) {
+      var errorString = x.statusText + "(" + x.status + ")";
       $mdDialog.show(
         $mdDialog.alert()
           .parent(angular.element(document.querySelector('#popupContainer')))
           .clickOutsideToClose(true)
           .title('Error')
-          .textContent(JSON.stringify(x.data))
+          .textContent(errorString)
           .ariaLabel('Alert error')
           .ok('Got it!')
         //.targetEvent(ev)
@@ -104,7 +109,7 @@
         return false;
       }
       vm.searchYoutube(vm.searchString, true);
-    }
+    };
 
     vm.gotoVideo = function (videoID) {
       var scrollPos = $("#scrollArea").scrollTop();
@@ -117,15 +122,15 @@
       });
 
 
-    }
+    };
 
     vm.next = function () {
       vm.searchYoutube(vm.currentQuery, 1);
-    }
+    };
 
     vm.prev = function () {
       vm.searchYoutube(vm.currentQuery, -1);
-    }
+    };
 
     function checkPagination() {
       vm.canPrev = YoutubeFeed.hasPrev();

@@ -15,7 +15,7 @@ angular
       }
     }
     return false;
-  }
+  };
 
   var getSearch = function () {
     return results;
@@ -23,24 +23,24 @@ angular
 
   var clearQuery = function () {
     query = false;
-  }
+  };
 
 
   var setQuery = function (newquery) {
     query = newquery;
-  }
+  };
 
   var getQuery = function () {
     return query;
-  }
+  };
 
   var setScroll = function (newscroll) {
     scrollPos = newscroll;
-  }
+  };
 
   var getScroll = function () {
     return scrollPos;
-  }
+  };
 
   return {
     saveSearch: saveSearch,

@@ -7,17 +7,17 @@
     .controller('DetailController', DetailController);
 
   /** @ngInject */
-  function DetailController($timeout, $http, $mdDialog, $rootScope, $stateParams, $scope, $mdMedia, $mdSidenav, $mdToast, searchResults, $state, YoutubeFeed) {
+  function DetailController($timeout, $http, $mdDialog, $rootScope, $stateParams, $mdMedia, $mdSidenav, $mdToast, searchResults, $state, YoutubeFeed) {
     var vm = this;
 
     $rootScope.bigLoading = true;
 
 
-    $scope.videoID=$stateParams.videoID;
-    YoutubeFeed.videoInfo($scope.videoID).then(function (res) {
+    vm.videoID = $stateParams.videoID;
+    YoutubeFeed.videoInfo(vm.videoID).then(function (res) {
       vm.loadInProgress = false;
 
-      $scope.video = res;
+      vm.video = res;
       console.log('single video', res);
       $timeout(function () {
         $rootScope.bigLoading = false;
@@ -30,7 +30,7 @@
     });
 
 
-    $scope.videoWidth="100%";
+    vm.videoWidth = "100%";
 
     vm.back = function () {
       $rootScope.bigLoading = true;
@@ -40,7 +40,7 @@
       }, 250, true);
 
 
-    }
+    };
 
     function showError(x) {
       $mdDialog.show(

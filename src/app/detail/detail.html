@@ -10,21 +10,21 @@
   <md-progress-linear ng-disabled = "!vm.loadInProgress" md-mode = "query"></md-progress-linear>
   <div layout-padding md-whiteframe = "3">
     <div hide-gt-sm flex id = "smallHeader">
-      <h2>{{video.title}}</h2>
-      <p>Published on {{video.publishedAt}}</p>
+      <h2>{{vm.video.title}}</h2>
+      <p>Published on {{vm.video.publishedAt}}</p>
     </div>
     <div layout-gt-sm = "row" layout = "column" layout-align = "start stretch"
          layout-align-gt-sm = "space-between start">
 
 
       <div flex = "100" flex-gt-sm = "60">
-        <div ob-lazytube = "{{videoID}}" rel = "0">Keyboard cat</div>
+        <div ob-lazytube = "{{vm.videoID}}" rel = "0">Keyboard cat</div>
       </div>
       <div flex-gt-sm = "35" hide show-gt-sm flex = "100">
-        <h3>{{video.title}}</h3>
+        <h3>{{vm.video.title}}</h3>
 
-        <p>Published on {{video.publishedAt}}</p>
-        <p>{{video.description}}</p>
+        <p>Published on {{vm.video.publishedAt}}</p>
+        <p>{{vm.video.description}}</p>
       </div>
     </div>
   </div>

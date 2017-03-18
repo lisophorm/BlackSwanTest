@@ -75,11 +75,11 @@
 
     var hasNext = function () {
       return nextPage;
-    }
+    };
 
     var hasPrev = function () {
       return prevPage;
-    }
+    };
 
     var videoInfo = function (videoID) {
       var deferred = $q.defer();
@@ -141,7 +141,7 @@
 
     var getCurrentQuery = function () {
       return currentQuery;
-    }
+    };
 
     function parseParams(obj) {
       var params = '';

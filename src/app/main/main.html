@@ -11,10 +11,10 @@
           <label>&nbsp;</label>
           <input ng-model = "vm.searchString" ng-enter = "vm.search()" placeholder = "enter search">
         </md-input-container>
-        <md-button aria-label = "Search" ng-click = "vm.searchString=''">
+        <md-button class = "md-fab md-mini" aria-label = "Search" ng-click = "vm.searchString=''">
           <ng-md-icon icon = "cancel"></ng-md-icon>
         </md-button>
-        <md-button aria-label = "Search" ng-click = "vm.search()">
+        <md-button class = "md-fab md-mini" aria-label = "Search" ng-click = "vm.search()">
           <ng-md-icon icon = "search"></ng-md-icon>
         </md-button>
       </div>
@@ -50,10 +50,7 @@
           </md-card-content>
 
 
-          <!--md-card-actions layout = "row" layout-align = "end center">
-            <md-button>Watch Video</md-button>
-          </md-card-actions>
-        </md-card-->
+
       </div>
 
     </md-content>
@@ -61,7 +58,7 @@
       <md-toolbar class = "md-scroll-shrink">
         <div layout = "row" layout-align = "center center" flex>
           <md-button ng-disabled = "!vm.canPrev" ng-click = "vm.prev()">Prev</md-button>
-          <md-button ng-disabled = "!vm.canNext" ng-click = "vm.next()">Next/md-button>
+          <md-button ng-disabled = "!vm.canNext" ng-click = "vm.next()">Next</md-button>
         </div>
       </md-toolbar>
     </footer>

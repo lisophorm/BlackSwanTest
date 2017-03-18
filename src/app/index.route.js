@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   angular
@@ -11,18 +11,18 @@
       .state('home', {
         url: '/',
         params: {
-          backToSearch: null,
+          backToSearch: null
         },
         templateUrl: 'app/main/main.html',
         controller: 'MasterController',
         controllerAs: 'vm'
       })
       .state('detail', {
-      url: '/video/:videoID',
-      templateUrl: 'app/detail/detail.html',
-      controller: 'DetailController',
-      controllerAs: 'vm'
-    });
+        url: '/video/:videoID',
+        templateUrl: 'app/detail/detail.html',
+        controller: 'DetailController',
+        controllerAs: 'vm'
+      });
 
     $urlRouterProvider.otherwise('/');
   }
