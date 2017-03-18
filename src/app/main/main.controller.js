@@ -22,6 +22,16 @@
     vm.canPrev = false;
     vm.canNext = false;
 
+    $rootScope.safeApply = function (fn) {
+      var phase = this.$root.$$phase;
+      if (phase == '$apply' || phase == '$digest') {
+        if (fn && (typeof(fn) === 'function')) {
+          fn();
+        }
+      } else {
+        this.$apply(fn);
+      }
+    };
 
     // search for new videos
 
@@ -33,9 +43,6 @@
       YoutubeFeed.searchYoutubeFeed(searchString, direction)
         .then(function (response) {
           checkPagination();
-          vm.searchString = "";
-          // checks if any of the results have been selected previously
-          console.log('resp in controler', response);
           vm.loadInProgress = false;
           vm.videos = response;
           searchResults.setScroll(0);
@@ -51,7 +58,7 @@
         }, function (x) {
           console.log(x);
 
-          $rootScope.bigLoading = false;
+          Preloader.hide();
           showError(x);
 
         });
@@ -64,20 +71,17 @@
       YoutubeFeed.searchYoutubeFeed(vm.currentQuery, 0)
         .then(function (response) {
           checkPagination();
-          vm.searchString = "";
+          vm.searchString = vm.currentQuery;
           // checks if any of the results have been selected previously
           console.log('resp in controler', response);
           vm.loadInProgress = false;
           vm.videos = response;
           var scrollPos = searchResults.getScroll();
 
-          Preloader.hide(function () {
             console.log('GET scroll', scrollPos);
+          $("#scrollArea").animate({scrollTop: scrollPos}, 10);
 
-            $("#scrollArea").scrollTop(scrollPos);
-
-
-          });
+          Preloader.hide();
 
 
         }, function (x) {

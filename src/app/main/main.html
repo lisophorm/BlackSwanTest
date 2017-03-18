@@ -11,7 +11,7 @@
           <label>&nbsp;</label>
           <input ng-model = "vm.searchString" ng-enter = "vm.search()" placeholder = "enter search">
         </md-input-container>
-        <md-button class = "md-fab md-mini" aria-label = "Search" ng-click = "vm.searchString=''">
+        <md-button class = "md-fab md-mini" aria-label = "Cancel" ng-click = "vm.searchString=''">
           <ng-md-icon icon = "cancel"></ng-md-icon>
         </md-button>
         <md-button class = "md-fab md-mini" aria-label = "Search" ng-click = "vm.search()">
@@ -22,7 +22,7 @@
     </md-toolbar>
 
 
-    <md-content layout-fill layout = "column" flex id = "scrollArea">
+    <md-content layout-fill layout = "column" flex afkl-image-container id = "scrollArea">
       <md-progress-linear ng-disabled = "!vm.loadInProgress" md-mode = "query"></md-progress-linear>
 
       <div class = 'md-padding' layout = "row" layout-wrap>
@@ -33,11 +33,11 @@
               <div hide-gt-sm flex>
                 <h2>{{video.title}}</h2>
                 <p>Published on {{video.publishedAt}}</p>
-
               </div>
 
               <div flex = "100" flex-gt-sm="45">
-                <img ng-src = "{{video.images.medium.url}}" class = "img-responsive" alt = "Washed Out">
+                <div afkl-lazy-image = "{{video.images.high.url}}"
+                     class = "afkl-lazy-wrapper afkl-img-ratio-1-1"></div>
               </div>
               <div flex-gt-sm = "50" hide show-gt-sm flex = "100">
                 <h3>{{video.title}}</h3>
@@ -48,8 +48,6 @@
             </div>
 
           </md-card-content>
-
-
 
       </div>
 
