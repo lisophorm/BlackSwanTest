@@ -20,8 +20,9 @@
     </md-toolbar>
 
 
-    <md-content layout-fill layout = "column" flex>
+    <md-content layout-fill layout = "column" flex id = "scrollArea">
       <md-progress-linear ng-disabled = "!vm.loadInProgress" md-mode = "query"></md-progress-linear>
+
       <div class = 'md-padding' layout = "row" layout-wrap>
         <md-card ng-class="{cardSize: $mdMedia('gt-sm')}" ng-repeat = "video in vm.videos" >
           <md-card-content ng-click="vm.gotoVideo(video.id)">
@@ -53,6 +54,14 @@
         </md-card-->
       </div>
 
-      <md-content>
+    </md-content>
+    <footer>
+      <md-toolbar class = "md-scroll-shrink">
+        <div layout = "row" layout-align = "center center" flex>
+          <md-button ng-disabled = "!vm.canPrev" ng-click = "vm.prev()">Previous Page</md-button>
+          <md-button ng-disabled = "!vm.canNext" ng-click = "vm.next()">Next Page</md-button>
+        </div>
+      </md-toolbar>
+    </footer>
   </div>
 </div>

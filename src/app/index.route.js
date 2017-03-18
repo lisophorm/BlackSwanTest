@@ -10,6 +10,9 @@
     $stateProvider
       .state('home', {
         url: '/',
+        params: {
+          backToSearch: null,
+        },
         templateUrl: 'app/main/main.html',
         controller: 'MasterController',
         controllerAs: 'vm'

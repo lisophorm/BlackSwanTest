@@ -1,24 +1,35 @@
-<div layout = "column">
-  <div layout = "row">
+<md-toolbar class = "cyanbg">
+  <div class = "md-toolbar-tools">
+
+
     <md-button ng-click = "vm.back()">back to results</md-button>
   </div>
-  <div hide-gt-sm flex id = "smallHeader">
-    <h2>{{video.title}}</h2>
-    <p>Published on {{video.publishedAt}}</p>
-  </div>
-  <div layout-gt-sm = "row" layout = "column" style="clear: both;"  layout-align="start stretch" layout-align-gt-sm = "space-between start" flex>
 
-
-    <div flex = "100" flex-gt-sm = "60">
-      <div ob-lazytube = "{{videoID}}" rel = "0">Keyboard cat</div>
-    </div>
-    <div flex-gt-sm = "35" show-gt-sm flex = "100">
-      <h3>{{video.title}}</h3>
-
+</md-toolbar>
+<md-content layout-padding = "">
+  <md-progress-linear ng-disabled = "!vm.loadInProgress" md-mode = "query"></md-progress-linear>
+  <div layout-padding md-whiteframe = "3">
+    <div hide-gt-sm flex id = "smallHeader">
+      <h2>{{video.title}}</h2>
       <p>Published on {{video.publishedAt}}</p>
-      <p>{{video.description}}</p>
+    </div>
+    <div layout-gt-sm = "row" layout = "column" layout-align = "start stretch"
+         layout-align-gt-sm = "space-between start">
+
+
+      <div flex = "100" flex-gt-sm = "60">
+        <div ob-lazytube = "{{videoID}}" rel = "0">Keyboard cat</div>
+      </div>
+      <div flex-gt-sm = "35" hide show-gt-sm flex = "100">
+        <h3>{{video.title}}</h3>
+
+        <p>Published on {{video.publishedAt}}</p>
+        <p>{{video.description}}</p>
+      </div>
     </div>
   </div>
+</md-content>
 
 
-</div>
+
+

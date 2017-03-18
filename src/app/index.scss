@@ -45,6 +45,19 @@
 
 html {
   font-family: 'Roboto Slab', serif;
+
+}
+
+body {
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
 }
 
 .browsehappy {
@@ -66,6 +79,10 @@ md-toolbar input {
   color: white;
 }
 
+md-card {
+  cursor: pointer;
+}
+
 md-input-container .md-errors-spacer {
   min-height: 0px !important;
 }
@@ -73,6 +90,18 @@ md-input-container .md-errors-spacer {
 h2, h3 {
   margin-top: 0;
 }
+
+.fade-in-out {
+  transition: 0.1s linear all;
+  opacity: 1;
+}
+
+.fade-in-out.ng-hide {
+  opacity: 0;
+}
+
+
+
 
 //.animate-repeat {
 //  height: 140px;

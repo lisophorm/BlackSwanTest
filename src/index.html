@@ -19,14 +19,36 @@
   <!-- css files will be automatically insert here -->
   <!-- endinject -->
   <!-- endbuild -->
+  <style>
+
+    .pageload-overlay {
+      background-color: #F30004;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+    }
+
+    .pageload-overlay img {
+      position: absolute;
+      top: 50%;
+      right: 50%;
+    }
+  </style>
+
 </head>
 <body>
 <!--[if lt IE 10]>
 <p class = "browsehappy">You are using an <strong>outdated</strong> browser. Please <a href = "http://browsehappy.com/">upgrade
   your browser</a> to improve your experience.</p>
 <![endif]-->
-<div layout = "column" layout-fill ui-view></div>
 
+<div layout = "column" layout-fill ui-view></div>
+<div ng-hide = "!$root.bigLoading" class = "pageload-overlay fade-in-out" style = "position: fixed;">
+  <img src = "assets/images/Preloader_7.gif" width = "64" height = "64" alt = ""/>
+</div>
 
 <!-- build:js(src) scripts/vendor.js -->
 <!-- bower:js -->
