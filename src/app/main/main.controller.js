@@ -49,7 +49,7 @@
           $timeout(function () {
 
 
-            $("#scrollArea").scrollTop(0);
+            $("#scrollArea").animate({scrollTop: 0}, 10);
 
 
           }, 100, true);

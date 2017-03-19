@@ -83,6 +83,10 @@ md-card {
   cursor: pointer;
 }
 
+md-card > :not(md-card-content) img, md-card > img {
+  height: 100% !important;
+}
+
 md-input-container .md-errors-spacer {
   min-height: 0 !important;
 }
