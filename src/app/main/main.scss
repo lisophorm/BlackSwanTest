@@ -30,7 +30,6 @@ md-input-container.light-text .md-input
 }
 
 md-card {
-  width:100%;
   img {
     width: 100%;
     height: auto;
@@ -38,7 +37,23 @@ md-card {
 
 }
 
+.video-prev {
+  width: 100%;
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+}
+
+img-responsive {
+  width: 100%;
+  height: auto;
+}
+
+
+
 .cardSize {
-  width:700px;
+  width: 700px !important;
   height: auto;
 }

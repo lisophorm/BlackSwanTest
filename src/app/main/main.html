@@ -1,7 +1,6 @@
 <div layout = "row" layout-fill>
 
 
-
   <div layout = "column" flex>
     <md-toolbar class = "cyanbg">
       <div class = "md-toolbar-tools">
@@ -26,19 +25,40 @@
       <md-progress-linear ng-disabled = "!vm.loadInProgress" md-mode = "query"></md-progress-linear>
 
       <div class = 'md-padding' layout = "row" layout-wrap>
-        <md-card ng-class="{cardSize: $mdMedia('gt-sm')}" ng-repeat = "video in vm.videos" >
-          <md-card-title>
-            madoona puttana
-          </md-card-title>
-          <md-card-content flex = "initial" ng-click = "vm.gotoVideo(video.id)">
 
-            <div layout-gt-sm = "row" layout = "column" layout-align="start stretch" layout-align-gt-sm = "space-between start">
+        <div layout-padding md-whiteframe = "3" class = "video-prev" ng-class = "{cardSize: $mdMedia('gt-sm')}"
+             ng-repeat = "video in vm.videos" ng-click = "vm.gotoVideo(video.id)">
+          <div hide-gt-sm flex id = "smallHeader">
+            <h2>{{video.title}}</h2>
+            <p>Published on {{video.publishedAt}}</p>
+          </div>
+          <div layout-gt-sm = "row" layout = "column" layout-align = "start stretch"
+               layout-align-gt-sm = "space-between start">
+
+
+            <div flex = "100" flex-gt-sm = "45">
+              <img ng-src = "{{video.images.high.url}}">
+
+            </div>
+            <div flex-gt-sm = "50" hide show-gt-sm flex = "100">
+              <h3>{{video.title}}</h3>
+
+              <p>Published on {{vm.video.publishedAt}}</p>
+              <p>{{video.description | cut:true:100:' ...'}}</p>
+            </div>
+          </div>
+        </div>
+        <md-card ng-class = "{cardSize: $mdMedia('gt-sm')}" ng-repeat = "video in vm.videos">
+          <md-card-content ng-click = "vm.gotoVideo(video.id)">
+
+            <div layout-gt-sm = "row" layout = "column" layout-align = "start stretch"
+                 layout-align-gt-sm = "space-between start">
               <div hide-gt-sm flex>
                 <h2>{{video.title}}</h2>
                 <p>Published on {{video.publishedAt}}</p>
               </div>
 
-              <div flex = "100" flex-gt-sm="45">
+              <div flex = "100" flex-gt-sm = "45">
                 <div afkl-lazy-image = "{{video.images.high.url}}"
                      class = "afkl-lazy-wrapper afkl-img-ratio-1-1"></div>
               </div>

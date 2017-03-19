@@ -29,18 +29,23 @@
         console.log('dieection parameter');
         if (direction > 0 && nextPage) {
           currentPage = nextPage;
-          console.log('net page');
+          console.log('go next');
           url += "&pageToken=" + nextPage;
         } else if (direction < 0 && prevPage) {
-          console.log('prev page');
+          console.log('go prev');
           currentPage = prevPage;
           url += "&pageToken=" + prevPage;
         } else if (direction == 0 && currentPage) {
+          console.log('back to search results');
           url += "&pageToken=" + currentPage;
         }
       } else {
         console.log('no dieection parameter');
       }
+      console.log('prevPage', prevPage);
+      console.log('currentPage', currentPage);
+      console.log('nextPage', nextPage);
+
 
       url += parseParams(configVar.APIparams);
 

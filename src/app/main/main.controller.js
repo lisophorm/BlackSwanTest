@@ -49,7 +49,7 @@
           $timeout(function () {
 
 
-            $("#scrollArea").animate({scrollTop: 0}, 10);
+            $("#scrollArea").animate({scrollTop: 0}, 100);
 
 
           }, 100, true);
@@ -79,9 +79,11 @@
           var scrollPos = searchResults.getScroll();
 
             console.log('GET scroll', scrollPos);
-          $("#scrollArea").animate({scrollTop: scrollPos}, 10);
 
-          Preloader.hide();
+          Preloader.hide(function () {
+            $("#scrollArea").animate({scrollTop: scrollPos}, 100);
+
+          });
 
 
         }, function (x) {

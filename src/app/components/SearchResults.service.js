@@ -35,7 +35,12 @@ angular
   };
 
   var setScroll = function (newscroll) {
+
     scrollPos = newscroll;
+    // fixes lazyloat bug
+    if (newscroll == 1) {
+      scrollPos += 2;
+    }
   };
 
   var getScroll = function () {
