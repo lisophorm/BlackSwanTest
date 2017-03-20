@@ -2,6 +2,7 @@
 
 This is over a day of work.
 There is room for improvement, and for sure I may have overlooked some glitches.
+The IE11 troubleshooting alone took 3 hours. So please keep in mind I could not that was all the time I could invest on this demo.
 
 Candidate:**Alfonso Florio**
 
