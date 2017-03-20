@@ -55,9 +55,12 @@
     </md-content>
     <footer>
       <md-toolbar class = "md-scroll-shrink">
-        <div layout = "row" layout-align = "center center" flex>
-          <md-button ng-disabled = "!vm.canPrev" ng-click = "vm.prev()">Prev</md-button>
-          <md-button ng-disabled = "!vm.canNext" ng-click = "vm.next()">Next</md-button>
+        <div class = "md-toolbar-tools">
+
+          <div layout = "row" layout-align = "center center" flex>
+            <md-button ng-disabled = "!vm.canPrev" ng-click = "vm.prev()">Prev</md-button>
+            <md-button ng-disabled = "!vm.canNext" ng-click = "vm.next()">Next</md-button>
+          </div>
         </div>
       </md-toolbar>
     </footer>
