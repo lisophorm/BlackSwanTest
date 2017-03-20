@@ -43,6 +43,7 @@
       YoutubeFeed.searchYoutubeFeed(searchString, direction)
         .then(function (response) {
           checkPagination();
+          console.log('response', response);
           vm.loadInProgress = false;
           vm.videos = response;
           searchResults.setScroll(0);
