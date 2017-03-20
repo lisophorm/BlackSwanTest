@@ -13,10 +13,15 @@ Tested with: **IE 11 - Chrome and Firefox**
 **Known bug/needs to be fixed**: last results in pagination 
 
 Frameworks and libriaries:
-AngularJS 1.5
+
+AngularJS 1.5 
+
 Angular Material
+
 UI-router
+
 Ng-Directive-Lazy-Image
+
 
 Tools used:
 Gulp
