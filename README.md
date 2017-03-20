@@ -24,11 +24,7 @@ UI-router
 Ng-Directive-Lazy-Image
 
 
-Tools used:
-Gulp
-Bower
-NodeJs
-LivwReload
+Tools used:Gulp / Bower / NodeJs LiveReload
 
 Bespoke components:
 **YoutubeFeed.factory**: handles the data logic of the application. Interacts with the youtube API
