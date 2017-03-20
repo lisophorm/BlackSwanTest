@@ -1,4 +1,3 @@
-
 (function () {
   'use strict';
 
@@ -92,7 +91,6 @@
       var url = configVar.url + '/videos?id=' + videoID;
       url += parseParams(configVar.APIparams);
 
-      console.log('url', url);
 
       $http.get(url)
         .then(function (response) {
@@ -157,7 +155,6 @@
       }
       return params;
     }
-
 
     var service = {
       searchYoutubeFeed: searchYoutubeFeed,

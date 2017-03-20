@@ -1,4 +1,3 @@
-
 (function () {
   'use strict';
 
@@ -7,7 +6,7 @@
     .controller('DetailController', DetailController);
 
   /** @ngInject */
-  function DetailController($timeout, $http, $mdDialog, $rootScope, $stateParams, $mdMedia, $mdSidenav, $mdToast, searchResults, $state, YoutubeFeed) {
+  function DetailController($timeout, $http, $mdDialog, $rootScope, $stateParams, $mdMedia, $mdSidenav, $mdToast, searchResults, $state, YoutubeFeed, Preloader) {
     var vm = this;
 
     $rootScope.bigLoading = true;
@@ -19,12 +18,12 @@
 
       vm.video = res;
       console.log('single video', res);
-      $timeout(function () {
+      Preloader.hide(function () {
         $rootScope.bigLoading = false;
-      }, 250, true);
+      });
 
     }, function (x) {
-      $rootScope.bigLoading = false;
+      Preloader.hide();
       showError(x);
 
     });
@@ -35,9 +34,9 @@
     vm.back = function () {
       $rootScope.bigLoading = true;
 
-      $timeout(function () {
+      Preloader.show(function () {
         $state.go("home", {"backToSearch": true});
-      }, 250, true);
+      });
 
 
     };

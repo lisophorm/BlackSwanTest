@@ -1,13 +1,10 @@
 <md-toolbar class = "cyanbg">
   <div class = "md-toolbar-tools">
-
-
-    <md-button ng-click = "vm.back()">back to results</md-button>
+    <md-button ng-click = "vm.back()">back to list of videos</md-button>
   </div>
 
 </md-toolbar>
 <md-content layout-padding = "">
-  <md-progress-linear ng-disabled = "!vm.loadInProgress" md-mode = "query"></md-progress-linear>
   <div layout-padding md-whiteframe = "3">
     <div hide-gt-sm flex id = "smallHeader">
       <h2>{{vm.video.title}}</h2>

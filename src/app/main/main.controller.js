@@ -9,8 +9,8 @@
   function MasterController($timeout, $http, Preloader, $rootScope, $mdDialog, YoutubeFeed, $scope, $mdMedia, $mdSidenav, $mdToast, $state, searchResults, $stateParams) {
     var vm = this;
 
+    // media query for the video container
     $scope.$mdMedia = $mdMedia;
-
 
     vm.loadInProgress = false;
 
@@ -63,6 +63,7 @@
 
         });
     };
+
 
     function backToResults() {
 
@@ -145,9 +146,6 @@
 
     if ($stateParams.backToSearch) {
       backToResults();
-    } else {
-      vm.searchYoutube("epicwin");
-
     }
 
 
