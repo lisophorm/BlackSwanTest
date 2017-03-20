@@ -53,7 +53,10 @@
       $http.get(url)
         .then(function (response) {
           console.log('raw response', response);
-          if (typeof response.data.nextPageToken !== 'undefined') {
+          // nextToken is returned also if the next page is the last
+          // this is not the best solution but it works in most of the cases
+          // i assume if the page has less than max results per page is the last page
+          if (typeof response.data.nextPageToken !== 'undefined' && response.data.items.length == configVar.APIparams.maxResults) {
             console.log('next page present');
             nextPage = response.data.nextPageToken;
           } else {

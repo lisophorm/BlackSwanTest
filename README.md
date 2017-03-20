@@ -11,6 +11,7 @@ Working url: **http://tom.crystal-bits.co.uk**
 Tested with: **IE 11 - Chrome and Firefox**
 
 **Known bug/needs to be fixed**: last results in pagination 
+Youtube API returns next page also if we are at the end.
 
 Frameworks and libriaries:
 
