@@ -2,58 +2,41 @@
   'use strict';
 
   angular
-    .module('beyondEercise01')
+    .module('BlackSwanExercise01')
     .controller('MasterController', MasterController);
 
   /** @ngInject */
-  function MasterController($timeout, $http, Preloader, $rootScope, $mdDialog, YoutubeFeed, $scope, $mdMedia, $mdSidenav, $mdToast, $state, searchResults, $stateParams) {
+  function MasterController($timeout, Preloader, $rootScope, $mdDialog, GitHubFeed, $scope, $mdMedia, $state, searchResults, $stateParams) {
     var vm = this;
 
-    // media query for the video container
+    // media query for the Repo container
     $scope.$mdMedia = $mdMedia;
 
     vm.loadInProgress = false;
 
     // current search results
-    vm.videos = [];
+    vm.results = [];
 
     vm.currentQuery = "";
-    vm.paginatorVisible = false;
-    vm.canPrev = false;
-    vm.canNext = false;
 
-    $rootScope.safeApply = function (fn) {
-      var phase = this.$root.$$phase;
-      if (phase == '$apply' || phase == '$digest') {
-        if (fn && (typeof(fn) === 'function')) {
-          fn();
-        }
-      } else {
-        this.$apply(fn);
-      }
-    };
 
-    // search for new videos
+    // search for Repos
 
-    vm.searchYoutube = function (searchString, direction) {
+    vm.searchGitHub = function (searchString) {
 
       vm.loadInProgress = true;
       Preloader.show();
       vm.currentQuery = searchString;
-      YoutubeFeed.searchYoutubeFeed(searchString, direction)
+      GitHubFeed.search(searchString)
         .then(function (response) {
-          checkPagination();
           console.log('response', response);
           vm.loadInProgress = false;
-          vm.videos = response;
+          vm.results = response;
           searchResults.setScroll(0);
-          $timeout(function () {
+          searchResults.setQuery(searchString);
 
+          $("#scrollArea").animate({scrollTop: 0}, 100);
 
-            $("#scrollArea").animate({scrollTop: 0}, 100);
-
-
-          }, 100, true);
           Preloader.hide();
 
         }, function (x) {
@@ -69,31 +52,26 @@
     function backToResults() {
 
       vm.loadInProgress = true;
-      vm.currentQuery = YoutubeFeed.getCurrentQuery();
-      YoutubeFeed.searchYoutubeFeed(vm.currentQuery, 0)
+      vm.currentQuery = searchResults.getQuery();
+      GitHubFeed.search(vm.currentQuery)
         .then(function (response) {
-          checkPagination();
           vm.searchString = vm.currentQuery;
-          // checks if any of the results have been selected previously
           console.log('resp in controler', response);
           vm.loadInProgress = false;
-          vm.videos = response;
+          vm.results = response;
           var scrollPos = searchResults.getScroll();
 
-            console.log('GET scroll', scrollPos);
+          console.log('GET scroll', scrollPos);
 
           Preloader.hide(function () {
             $("#scrollArea").animate({scrollTop: scrollPos}, 100);
 
           });
 
-
         }, function (x) {
           Preloader.hide();
           console.log(x);
-
           showError(x);
-
         });
     }
 
@@ -116,34 +94,20 @@
       if (vm.searchString == "") {
         return false;
       }
-      vm.searchYoutube(vm.searchString, true);
+      vm.searchGitHub(vm.searchString, true);
     };
 
-    vm.gotoVideo = function (videoID) {
+    vm.gotoRepo = function (username, reponame) {
       var scrollPos = $("#scrollArea").scrollTop();
       searchResults.setScroll(scrollPos);
-      console.log('scroll', scrollPos);
-      console.log('goto vidoe', videoID);
-      searchResults.saveSearch(vm.videos);
       Preloader.show(function () {
-        $state.go("detail", {"videoID": videoID});
+        $state.go("detail", {
+          "username": username,
+          "reponame": reponame
+        });
       });
-
-
     };
 
-    vm.next = function () {
-      vm.searchYoutube(vm.currentQuery, 1);
-    };
-
-    vm.prev = function () {
-      vm.searchYoutube(vm.currentQuery, -1);
-    };
-
-    function checkPagination() {
-      vm.canPrev = YoutubeFeed.hasPrev();
-      vm.canNext = YoutubeFeed.hasNext();
-    }
 
     if ($stateParams.backToSearch) {
       backToResults();

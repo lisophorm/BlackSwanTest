@@ -3,7 +3,7 @@
   'use strict';
 
   angular
-    .module('beyondEercise01')
+    .module('BlackSwanExercise01')
     .factory('Preloader', Preloader);
 
   function Preloader($timeout, $rootScope) {

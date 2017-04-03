@@ -23,46 +23,39 @@
 
     <md-content layout-fill layout = "column" flex afkl-image-container id = "scrollArea">
       <div class = 'md-padding' layout = "row" layout-wrap>
-        <div ng-hide = "vm.videos.length"><h1>No results</h1></div>
+        <div ng-hide = "vm.results.length"><h1>No results</h1></div>
 
-        <div md-whiteframe = "3" class = "video-prev md-padding md-margin" ng-class = "{cardSize: $mdMedia('gt-sm')}"
-             ng-repeat = "video in vm.videos" ng-click = "vm.gotoVideo(video.id)">
-          <div hide-gt-sm flex id = "smallHeader">
-            <h2>{{video.title}}</h2>
-            <p>Published on {{video.publishedAt}}</p>
-          </div>
+        <div md-whiteframe = "3" layout = "column" layout-align = "space-between start"
+
+             class = "repo-card md-padding md-margin" ng-class = "{cardSize: $mdMedia('gt-sm')}"
+             ng-repeat = "result in vm.results">
+
           <div layout-gt-sm = "row" layout = "column" layout-align = "start stretch"
                layout-align-gt-sm = "space-between start">
 
-
-            <div flex = "100" flex-gt-sm = "45">
-              <img ng-src = "{{video.images.high.url}}">
-
+            <div layout = "column" flex>
+              <h3><a href = "{{result.html_url}}" target = "_blank">{{result.name}}</a></h3>
+              <p>{{result.description}}</p>
+              <p><i>{{result.updated_at}}</i></p>
             </div>
-            <div flex-gt-sm = "50" hide show-gt-sm flex = "100">
-              <h3>{{video.title}}</h3>
-
-              <p>Published on {{video.publishedAt}}</p>
-              <p>{{video.description | cut:true:100:' ...'}}</p>
+            <div flex = "none" class = "md-padding">
+              {{result.language}}
             </div>
+            <div flex = "none" class = "md-padding">
+              <i class = "material-icons md-36">star</i>
+
+              {{result.stargazers_count}}
+            </div>
+
           </div>
+          <md-button ng-click = "vm.gotoRepo(result.owner.login,result.name)" class = "md-warn">Display issues
+          </md-button>
         </div>
-
 
 
       </div>
 
     </md-content>
-    <footer>
-      <md-toolbar class = "md-scroll-shrink">
-        <div class = "md-toolbar-tools">
 
-          <div layout = "row" layout-align = "center center" flex>
-            <md-button ng-disabled = "!vm.canPrev" ng-click = "vm.prev()">Prev</md-button>
-            <md-button ng-disabled = "!vm.canNext" ng-click = "vm.next()">Next</md-button>
-          </div>
-        </div>
-      </md-toolbar>
-    </footer>
   </div>
 </div>

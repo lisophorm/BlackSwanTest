@@ -1,7 +1,7 @@
 // intercepts the enter key inside an input field
 
 angular
-  .module('beyondEercise01').directive('ngEnter', function () {
+  .module('BlackSwanExercise01').directive('ngEnter', function () {
   return function (scope, element, attrs) {
     element.bind("keydown keypress", function (event) {
       if (event.which === 13) {

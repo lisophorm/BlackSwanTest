@@ -2,21 +2,19 @@
   'use strict';
 
   angular
-    .module('beyondEercise01')
+    .module('BlackSwanExercise01')
     .controller('DetailController', DetailController);
 
   /** @ngInject */
-  function DetailController($timeout, $http, $mdDialog, $rootScope, $stateParams, $mdMedia, $mdSidenav, $mdToast, searchResults, $state, YoutubeFeed, Preloader) {
+  function DetailController($mdDialog, $rootScope, $stateParams, searchResults, $state, GitHubFeed, Preloader) {
     var vm = this;
 
     $rootScope.bigLoading = true;
+    vm.issueState = "";
 
-
-    vm.videoID = $stateParams.videoID;
-    YoutubeFeed.videoInfo(vm.videoID).then(function (res) {
+    GitHubFeed.getIssues($stateParams.username, $stateParams.reponame).then(function (res) {
       vm.loadInProgress = false;
-
-      vm.video = res;
+      vm.issues = res;
       console.log('single video', res);
       Preloader.hide(function () {
         $rootScope.bigLoading = false;
@@ -29,16 +27,11 @@
     });
 
 
-    vm.videoWidth = "100%";
-
     vm.back = function () {
       $rootScope.bigLoading = true;
-
       Preloader.show(function () {
         $state.go("home", {"backToSearch": true});
       });
-
-
     };
 
     function showError(x) {

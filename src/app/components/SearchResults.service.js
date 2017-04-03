@@ -1,25 +1,7 @@
 angular
-  .module('beyondEercise01').service('searchResults', function () {
-  var results = [];
+  .module('BlackSwanExercise01').service('searchResults', function () {
   var query = "";
   var scrollPos = 0;
-
-  var saveSearch = function (newObj) {
-    results = newObj;
-  };
-
-  var findDetails = function (videoID) {
-    for (var i = 0; i < results.length; i++) {
-      if (results[i].id == videoID) {
-        return results[i];
-      }
-    }
-    return false;
-  };
-
-  var getSearch = function () {
-    return results;
-  };
 
   var clearQuery = function () {
     query = false;
@@ -48,9 +30,6 @@ angular
   };
 
   return {
-    saveSearch: saveSearch,
-    getSearch: getSearch,
-    findDetails: findDetails,
     clearQuery: clearQuery,
     setQuery: setQuery,
     getQuery: getQuery,

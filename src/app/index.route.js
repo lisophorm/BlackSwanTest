@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('beyondEercise01')
+    .module('BlackSwanExercise01')
     .config(routerConfig);
 
   /** @ngInject */
@@ -18,7 +18,7 @@
         controllerAs: 'vm'
       })
       .state('detail', {
-        url: '/video/:videoID',
+        url: '/issues/:username/:reponame',
         templateUrl: 'app/detail/detail.html',
         controller: 'DetailController',
         controllerAs: 'vm'

@@ -1,29 +1,46 @@
 <md-toolbar class = "cyanbg">
   <div class = "md-toolbar-tools">
-    <md-button ng-click = "vm.back()">back to list of videos</md-button>
+    <div layout = "row" flex layout-align = "space-between center">
+      <md-button ng-click = "vm.back()">back to search results</md-button>
+      <md-select ng-model = "vm.issueState" placeholder = "Filter by issue status" class = "md-no-underline">
+        <md-option value = "">Any</md-option>
+
+        <md-option value = "open">Open</md-option>
+        <md-option value = "closed">Closed</md-option>
+
+      </md-select>
+    </div>
+
   </div>
 
 </md-toolbar>
 <md-content layout-padding = "">
   <div layout-padding md-whiteframe = "3">
-    <div hide-gt-sm flex id = "smallHeader">
-      <h2>{{vm.video.title}}</h2>
-      <p>Published on {{vm.video.publishedAt}}</p>
-    </div>
-    <div layout-gt-sm = "row" layout = "column" layout-align = "start stretch"
-         layout-align-gt-sm = "space-between start">
+    {{vm.issueState}}
+    <md-list>
+      <md-list-item ng-repeat-start = "issue in vm.issues" ng-if = "issue.state===vm.issueState || vm.issueState===''">
+        <div layout = "row" flex layout-align = "start center">
+
+          <div layout = "column">
+            <i class = "material-icons md-36 open" ng-if = "issue.state==='open'">assignment</i>
+            <i class = "material-icons md-36 closed" ng-if = "issue.state==='closed'">assignment_turned_in</i>
+          </div>
 
 
-      <div flex = "100" flex-gt-sm = "60">
-        <div ob-lazytube = "{{vm.videoID}}" rel = "0">Keyboard cat</div>
-      </div>
-      <div flex-gt-sm = "35" hide show-gt-sm flex = "100">
-        <h3>{{vm.video.title}}</h3>
+          <div layout = "column" flex>
+            <p>{{issue.title}}</p>
+            <p>opened on {{issue.created_at}} by {{issue.user.login}}</p>
+          </div>
+          <div layout = "column" flex = "5">
+            <p><i class = "material-icons md-36 open">comment</i>
+              {{issue.comments}}</p>
 
-        <p>Published on {{vm.video.publishedAt}}</p>
-        <p>{{vm.video.description}}</p>
-      </div>
-    </div>
+          </div>
+        </div>
+
+      </md-list-item>
+      <md-divider ng-repeat-end></md-divider>
+    </md-list>
   </div>
 </md-content>
 

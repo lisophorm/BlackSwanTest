@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('beyondEercise01')
+    .module('BlackSwanExercise01')
     .config(config);
 
   /** @ngInject */
